@@ -3,25 +3,28 @@ package test;
 import java.util.ArrayList;
 import java.util.Iterator;
 import jeuxCartes.Card;
+import jeuxCartes.Creater;
+import jeuxCartes.Land;
 import jeuxCartes.Player;
+import jeuxCartes.Spel;
 
 
 public class Main {
 
 	public static void main(String[] args) {
 		ArrayList<Card> Mycards = new ArrayList<Card>();
-		Mycards.add(new Card("land", 5));
-		Mycards.add(new Card("land", 4));
-		Mycards.add(new Card("land", 3));
-		Mycards.add(new Card("land", 2));
-		Mycards.add(new Card("land", 1));
-		Mycards.add(new Card("creat", 1));
-		Mycards.add(new Card("creat", 2));
-		Mycards.add(new Card("creat", 3));
-		Mycards.add(new Card("creat", 4));
-		Mycards.add(new Card("creat", 5));
-		Mycards.add(new Card("spel", 2));
-		Mycards.add(new Card("spel", 1));
+		Mycards.add(new Land("land", 5));
+		Mycards.add(new Land("land", 4));
+		Mycards.add(new Land("land", 3));
+		Mycards.add(new Land("land", 2));
+		Mycards.add(new Land("land", 1));
+		Mycards.add(new Creater("creat", 1));
+		Mycards.add(new Creater("creat", 2));
+		Mycards.add(new Creater("creat", 3));
+		Mycards.add(new Creater("creat", 4));
+		Mycards.add(new Creater("creat", 5));
+		Mycards.add(new Spel("spel", 2));
+		Mycards.add(new Spel("spel", 1));
 
 		
 		Player play1 = new Player("ahmed", Mycards);
@@ -53,10 +56,14 @@ public class Main {
 				if(player1Card.getName().equals ("spel")){
 //					System.out.println("Player 1 card is spel");
 					count[0]++;
-				}else if(player1Card.getName() .equals( "creat")) {
+				} if(player1Card.getName() .equals( "creat") && !player2Card.getName().equals("spel")) {
 //					System.out.println("Player 1 card is Create");
 					count[0]++;
-				}else {
+				}else if(player1Card.getName() .equals( "creat") && player2Card.getName().equals("spel")) {
+//					System.out.println("Player 1 card is Create");
+					count[1]++;
+				}
+				else {
 //					System.out.println("PLayer 1 name is land");
 					count[1]++;
 				}
